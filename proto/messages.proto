@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service Server {
+	rpc get_closest (Request) returns (Reply) {}
+}
+
+message Request {
+	int32 index = 1;
+	float min_dist = 2;
+	float max_dist = 3;
+}
+
+message Reply {
+	int32 index = 1;
+	float dist = 2;
+}
