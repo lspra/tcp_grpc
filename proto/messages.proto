@@ -1,16 +1,21 @@
 syntax = "proto3";
 
 service Server {
-	rpc get_closest (Request) returns (Reply) {}
+	rpc Create (empt) returns (Id) {}
+	rpc Delete (Id) returns (empt) {}
+	rpc Start (Id) returns (empt) {}
+	rpc Stop (Id) returns (empt) {}
+	rpc Store (Message) returns (empt) {}
+	rpc Read (Id) returns (Message) {}
 }
 
-message Request {
-	int32 index = 1;
-	float min_dist = 2;
-	float max_dist = 3;
+message Id {
+	int32 id = 1;
 }
 
-message Reply {
-	int32 index = 1;
-	float dist = 2;
+message Message {
+	int32 id = 1;
+	string data = 2;
 }
+
+message empt {}
